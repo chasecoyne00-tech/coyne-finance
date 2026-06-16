@@ -27,6 +27,14 @@ Search the repo for `[XXXXXX]`, `[Email]`, `[Phone]`, `[Postal address]` and
 > Already done: entity/licensee details, legal-page effective dates (June 2026),
 > founder name, calculator disclaimer.
 
+**Confirm the lender panel before launch.** The "Lender panel" section on
+`index.html` and `solutions.html` lists 16 lenders modelled on Savvy's panel
+(same AFAS/ACL 414426 licensee). Verify this list matches **your actual
+AFOS/Optimise accreditations** and remove any you can't currently place deals
+with — advertising lenders you aren't accredited for is a misleading-conduct
+risk. The list is plain text in both files (`<ul class="lender-grid">`); add or
+delete `<li>` items to match.
+
 ## Step 2 — Wire the enquiry form to GoHighLevel (2 minutes)
 
 1. GHL → **Automation → Workflows → new workflow → trigger "Inbound Webhook"** → copy the URL.

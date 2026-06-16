@@ -262,6 +262,30 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .cat p { font-size: .92rem; }
 
 /* ====================================================================
+   LENDER PANEL — typography-led hairline grid (brand: no loud logos)
+   ==================================================================== */
+.lender-grid {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden;
+}
+.lender-grid li {
+  background: var(--white); color: var(--navy);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 86px; padding: 22px 18px;
+  font-weight: 600; font-size: .98rem; letter-spacing: .005em;
+  position: relative; transition: color .25s, background .25s;
+}
+.lender-grid li::after {
+  content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: 0; height: 2px; background: var(--gold); transition: width .35s var(--ease);
+}
+.lender-grid li:hover { color: var(--gold); background: #FBFAF7; }
+.lender-grid li:hover::after { width: 46px; }
+.lender-note { max-width: 60ch; margin-inline: auto; font-size: .9rem; }
+
+/* ====================================================================
    PROCESS STEPS
    ==================================================================== */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
