@@ -287,6 +287,16 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .lender-grid li:hover::after { width: 46px; }
 .lender-note { max-width: 60ch; margin-inline: auto; font-size: .9rem; }
 
+/* Logo treatment: greyscale by default, true colour on hover (Savvy-style).
+   Each tile falls back to the lender name until a real logo file is added
+   (the <img> removes itself via onerror, revealing the .lender-name). */
+.lender-logo {
+  max-height: 40px; max-width: 80%; width: auto; object-fit: contain;
+  filter: grayscale(1); opacity: .82; transition: filter .3s var(--ease), opacity .3s;
+}
+.lender-grid li:hover .lender-logo { filter: none; opacity: 1; }
+.lender-logo + .lender-name { display: none; }
+
 /* ====================================================================
    PROCESS STEPS
    ==================================================================== */
