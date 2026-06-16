@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discuss Finance | Coyne Finance</title>
+  <meta name="description" content="Start a finance enquiry with Coyne Finance. Tell us about the asset, the amount and your business profile, and we will position the transaction properly." />
+  <meta name="theme-color" content="#0B1F3A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Coyne Finance home"><span class="brand__mark">CF</span><span class="brand__name">Coyne Finance</span></a>
+      <nav id="nav-links" class="nav__links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="solutions.html">Capabilities</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Discuss Finance</a>
+        <span class="nav__cta"><a class="btn btn--gold" href="contact.html">Discuss Finance <span class="arrow">→</span></a></span>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow" data-reveal>Discuss Finance</span>
+        <h1 class="h-display" data-reveal data-delay="1">Discuss finance.</h1>
+        <p class="lead" data-reveal data-delay="2">Tell us about the asset and the opportunity. Each enquiry is reviewed properly before we respond.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap contact-grid">
+        <div data-reveal>
+          <div class="form-note">Coyne Finance reviews each enquiry with consideration to the asset, applicant profile, lender appetite and commercial structure.</div>
+          <div class="contact-list">
+            <!-- TODO: confirm public contact details before launch -->
+            <div class="ci">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              <div><div class="t">Email</div><div class="d">[hello@coynefinance.com.au]</div></div>
+            </div>
+            <div class="ci">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l1 4v0a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              <div><div class="t">Phone</div><div class="d">[Add phone before launch]</div></div>
+            </div>
+            <div class="ci">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              <div><div class="t">Servicing</div><div class="d">Australia-wide</div></div>
+            </div>
+          </div>
+          <p class="muted" style="margin-top:28px;font-size:.9rem;">Prefer to read first? See <a class="textlink" style="display:inline;border:0;color:var(--navy)" href="credit-guide.html">our Credit Guide</a> for how we work and what to expect.</p>
+        </div>
+
+        <div data-reveal data-delay="1">
+          <form class="enquiry" id="enquiry-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Name <span class="req">*</span></label>
+                <input class="form-control" type="text" id="f-name" name="name" autocomplete="name" required />
+                <div class="error-msg">Please enter your name.</div>
+              </div>
+              <div class="form-group">
+                <label for="f-phone">Phone <span class="req">*</span></label>
+                <input class="form-control" type="tel" id="f-phone" name="phone" autocomplete="tel" required />
+                <div class="error-msg">Please enter a contact number.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input class="form-control" type="email" id="f-email" name="email" autocomplete="email" required />
+              <div class="error-msg">Please enter a valid email address.</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-asset">Asset type</label>
+                <select class="form-control" id="f-asset" name="asset_type">
+                  <option value="">Select…</option>
+                  <option>Vehicle</option>
+                  <option>Truck / Transport</option>
+                  <option>Equipment</option>
+                  <option>Machinery</option>
+                  <option>Yellow goods</option>
+                  <option>Caravan / Leisure</option>
+                  <option>Commercial vehicle</option>
+                  <option>Refinance / Asset release</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="f-amount">Purchase amount</label>
+                <input class="form-control" type="text" id="f-amount" name="amount" inputmode="numeric" placeholder="e.g. $80,000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-emp">Employment or business type</label>
+              <input class="form-control" type="text" id="f-emp" name="employment" placeholder="e.g. Self-employed / ABN holder / PAYG" />
+            </div>
+            <div class="form-group">
+              <label for="f-msg">Message</label>
+              <textarea class="form-control" id="f-msg" name="message" placeholder="Tell us about the asset and the opportunity."></textarea>
+            </div>
+            <div class="form-submit">
+              <button class="btn btn--gold" type="submit">Submit Finance Enquiry <span class="arrow">→</span></button>
+            </div>
+            <p class="form-error" id="form-error" role="alert">Sorry — your enquiry didn’t send. Please try again, or email us directly.</p>
+            <p class="muted" style="font-size:.78rem;margin-top:16px;">By submitting, you consent to Coyne Finance contacting you about your enquiry. See our <a href="privacy.html" style="color:var(--navy);text-decoration:underline;">Privacy Policy</a>.</p>
+          </form>
+
+          <div class="form-success" id="form-success" aria-live="polite">
+            <div class="tick" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 13 4 4L19 7"/></svg></div>
+            <h3>Enquiry received.</h3>
+            <p>Thank you. We will review the detail of your enquiry and be in touch shortly to discuss how the transaction is best structured.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div><a class="brand" href="index.html"><span class="brand__mark">CF</span><span class="brand__name">Coyne Finance</span></a><p class="footer-tagline">Structured asset finance for operators, business owners and ambitious Australians.</p></div>
+        <div class="footer-col"><h4>Navigate</h4><a href="index.html">Home</a><a href="solutions.html">Capabilities</a><a href="about.html">About</a><a href="contact.html">Discuss Finance</a></div>
+        <div class="footer-col"><h4>Important documents</h4><a href="privacy.html">Privacy Policy</a><a href="credit-guide.html">Credit Guide</a><a href="complaints.html">Complaints &amp; Dispute Resolution</a></div>
+      </div>
+      <div class="compliance"><strong>Coyne Financial Pty Ltd ATF The Coyne Capital Trust</strong> (ACN 688 064 691), trading as Coyne Finance,<br />Credit Representative Number <!-- TODO: confirm before launch -->[XXXXXX], a Credit Representative of AFAS Group Pty Ltd, Australian Credit Licence 414426.</div>
+      <p class="disclaimer">Any rates or repayments shown on this website are indicative only and based on the stated loan type, loan amount and term. Actual rates, repayments and approval are subject to lender assessment, your circumstances, and full terms and conditions. This website provides general information only and does not constitute credit assistance, financial advice or an offer of credit.</p>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> Coyne Financial Pty Ltd. All rights reserved.</span><span>Asset &amp; Commercial Finance · Australia</span></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

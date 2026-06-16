@@ -1,0 +1,8 @@
+{
+  "cash_rate": 4.35,
+  "effective": "2026-05-06",
+  "source": "Reserve Bank of Australia",
+  "source_url": "https://www.rba.gov.au/statistics/cash-rate/",
+  "updated": "2026-06-16",
+  "note": "RBA cash rate target. Auto-updated by the update-rates GitHub Action from the RBA cash-rate page. Edit by hand only as a fallback."
+}

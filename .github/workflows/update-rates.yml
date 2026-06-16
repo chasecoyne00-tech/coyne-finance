@@ -1,0 +1,35 @@
+name: Update RBA cash rate
+
+# Keeps data/rates.json in sync with the RBA cash rate target.
+# Runs on a schedule and can be triggered by hand. If the value changes,
+# it commits to main, which redeploys GitHub Pages automatically.
+on:
+  schedule:
+    # 06:00 UTC on weekdays (~4pm AEST) — after RBA Board decisions publish.
+    - cron: "0 6 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-rate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Refresh cash rate from RBA
+        run: node scripts/update-rates.mjs
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain data/rates.json)" ]; then
+            git config user.name "coyne-finance-bot"
+            git config user.email "actions@github.com"
+            git add data/rates.json
+            git commit -m "chore: update RBA cash rate"
+            git push
+          else
+            echo "No change to commit."
+          fi
