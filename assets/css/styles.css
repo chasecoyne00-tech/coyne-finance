@@ -22,9 +22,11 @@
   --line:        #ECECEC;
   --white:       #FFFFFF;
 
-  /* Type */
-  --serif: Georgia, "Times New Roman", "Liberation Serif", serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  /* Type — per Brand Guidelines v1.0:
+     Montserrat carries all headings, body and navigation.
+     Cormorant Garamond is reserved strictly for the monogram / logo feel. */
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 
   /* System */
   --maxw: 1180px;
@@ -84,7 +86,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .section--navy .eyebrow { color: var(--gold-soft); }
 
-h1, h2, h3 { line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; }
+/* Montserrat Semibold for headings (per brand guide) */
+h1, h2, h3 { line-height: 1.12; font-weight: 600; letter-spacing: -0.015em; }
 .h-display { font-size: clamp(2.3rem, 5.4vw, 4.05rem); }
 h2 { font-size: clamp(1.85rem, 3.8vw, 2.9rem); }
 h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
@@ -132,6 +135,16 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .brand { display: flex; align-items: baseline; gap: 10px; color: var(--white); }
 .brand__mark { font-family: var(--serif); font-weight: 700; font-size: 1.7rem; color: var(--gold); letter-spacing: .02em; line-height: 1; }
 .brand__name { font-weight: 600; letter-spacing: .04em; font-size: .82rem; text-transform: uppercase; color: var(--white); opacity: .92; }
+
+/* Brand guide: the WORDMARK is the primary identity in the website header;
+   the CF monogram is secondary (footer / watermark / social only). */
+.site-header .brand__mark { display: none; }
+.site-header .brand__name {
+  font-size: 1.02rem;
+  letter-spacing: 0.24em;
+  opacity: 1;
+  padding-left: 2px;
+}
 .nav__links { display: flex; align-items: center; gap: 34px; }
 .nav__links a { color: rgba(255,255,255,.78); font-size: .92rem; font-weight: 500; position: relative; padding: 6px 0; transition: color .25s; }
 .nav__links a::after { content:""; position:absolute; left:0; bottom:0; height:1.5px; width:0; background: var(--gold); transition: width .3s var(--ease); }
@@ -216,7 +229,7 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .panel__row:last-child { border-bottom: 0; padding-bottom: 0; }
 .panel__row:first-child { padding-top: 0; }
 .panel__row .k { color: var(--stone); font-size: .92rem; }
-.panel__row .v { color: var(--gold-soft); font-weight: 600; font-family: var(--serif); font-size: 1.15rem; }
+.panel__row .v { color: var(--gold-soft); font-weight: 600; font-family: var(--sans); font-size: 1.05rem; letter-spacing: .01em; }
 
 /* ====================================================================
    CARDS / TILES
@@ -235,14 +248,13 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .card::after { content:""; position:absolute; left:0; top:0; height:3px; width:0; background: var(--gold); transition: width .4s var(--ease); }
 .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-color: var(--stone); }
 .card:hover::after { width: 100%; }
-.card__num { font-family: var(--serif); color: var(--gold); font-size: 1rem; font-weight: 700; letter-spacing: .08em; }
-.card h3 { margin: 14px 0 10px; color: var(--navy); }
-.card p { color: var(--slate); font-size: .96rem; }
-.card__icon {
-  width: 46px; height: 46px; border-radius: 8px; display: grid; place-items: center; margin-bottom: 18px;
-  background: rgba(201,162,39,.12); color: var(--gold);
+.card__num {
+  display: inline-block; font-family: var(--sans); color: var(--gold);
+  font-size: .82rem; font-weight: 600; letter-spacing: .18em;
+  padding-bottom: 10px; margin-bottom: 16px; border-bottom: 1px solid rgba(201,162,39,.35);
 }
-.card__icon svg { width: 24px; height: 24px; }
+.card h3 { margin: 4px 0 10px; color: var(--navy); }
+.card p { color: var(--slate); font-size: .96rem; }
 
 /* category cards (capabilities) */
 .cat { padding: 26px 24px; }
@@ -257,7 +269,7 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 @media (max-width: 520px){ .steps { grid-template-columns: 1fr; } }
 .step { padding: 30px 26px 30px 0; border-top: 2px solid rgba(255,255,255,.16); position: relative; }
 .steps .step + .step { padding-left: 26px; }
-.step__n { font-family: var(--serif); color: var(--gold-soft); font-size: 1.3rem; font-weight: 700; }
+.step__n { font-family: var(--sans); color: var(--gold-soft); font-size: 1.3rem; font-weight: 600; letter-spacing: .04em; }
 .step h3 { color: var(--white); margin: 14px 0 9px; font-size: 1.18rem; }
 .step p { color: var(--stone); font-size: .94rem; }
 .step::before { content:""; position:absolute; top:-2px; left:0; height:2px; width:0; background: var(--gold); transition: width .6s var(--ease); }
@@ -272,7 +284,7 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .field { margin-bottom: 24px; }
 .field:last-child { margin-bottom: 0; }
 .field label { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: .92rem; color: var(--ink); margin-bottom: 10px; }
-.field label .out { font-family: var(--serif); color: var(--navy); font-size: 1.15rem; }
+.field label .out { font-family: var(--sans); font-weight: 600; color: var(--navy); font-size: 1.05rem; }
 input[type="range"]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:6px; background: var(--stone-light); outline: none; }
 input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background: var(--navy); border: 3px solid var(--gold); cursor: pointer; transition: transform .15s; box-shadow: 0 2px 8px rgba(11,31,58,.4); }
 input[type="range"]::-webkit-slider-thumb:active{ transform: scale(1.15); }
@@ -285,7 +297,7 @@ input[type="range"]::-moz-range-thumb{ width:18px; height:18px; border-radius:50
   display: flex; flex-direction: column; box-shadow: var(--shadow);
 }
 .calc__result .label { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); }
-.calc__amount { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 3.6rem); font-weight: 700; color: var(--gold-soft); line-height: 1.05; margin: 8px 0 2px; }
+.calc__amount { font-family: var(--sans); font-size: clamp(2.4rem, 5.6vw, 3.3rem); font-weight: 600; letter-spacing: -.01em; color: var(--gold-soft); line-height: 1.05; margin: 8px 0 2px; }
 .calc__amount small { font-size: 1rem; color: var(--stone); font-family: var(--sans); font-weight: 500; }
 .calc__break { margin-top: auto; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.12); display: grid; gap: 12px; }
 .calc__break div { display: flex; justify-content: space-between; font-size: .92rem; }
