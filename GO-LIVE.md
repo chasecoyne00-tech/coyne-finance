@@ -38,22 +38,39 @@ Search the repo for `[XXXXXX]`, `[Email]`, `[Phone]`, `[Postal address]` and
 ## Step 3 — Point your domain at GitHub Pages
 
 Keeping the site on GitHub Pages means the **live cash-rate Action keeps working**.
-In your domain registrar's DNS for **coynefinance.com.au**:
+The domain's DNS is managed at **Squarespace** (registrar only — the site is NOT
+hosted on Squarespace). Do these in order; the order matters so the staging
+preview doesn't break.
+
+**a) Add the records at Squarespace.**
+Squarespace dashboard → **Domains** → `coynefinance.com.au` → **DNS** /
+**DNS Settings** → **Add record**. Remove any existing default `@` A-records or
+`www` CNAME that Squarespace preloaded (they'll conflict), then add:
 
 ```
 # Apex (coynefinance.com.au) — four A records to GitHub Pages:
-A     @     185.199.108.153
-A     @     185.199.109.153
-A     @     185.199.110.153
-A     @     185.199.111.153
+Host  @    Type A      Value 185.199.108.153
+Host  @    Type A      Value 185.199.109.153
+Host  @    Type A      Value 185.199.110.153
+Host  @    Type A      Value 185.199.111.153
 
-# www (the canonical host used in sitemap.xml):
-CNAME www   chasecoyne00-tech.github.io
+# www = the canonical host (sitemap.xml + robots.txt already use www):
+Host  www  Type CNAME  Value chasecoyne00-tech.github.io
 ```
+(Squarespace shows the apex host as `@`; some screens label it blank/“root”.)
 
-Then: GitHub repo → **Settings → Pages → Custom domain** = `www.coynefinance.com.au`
-→ Save → tick **Enforce HTTPS** (wait for the cert, a few minutes).
-DNS propagation can take 15 min–24 h.
+**b) Tell GitHub the custom domain — ONLY after step (a) is saved.**
+GitHub repo → **Settings → Pages → Custom domain** = `www.coynefinance.com.au`
+→ Save. This writes a `CNAME` file to the repo. (Do NOT set this before the DNS
+records exist — GitHub will 301-redirect the working github.io staging URL to a
+domain that doesn't resolve yet, taking the preview offline.)
+
+**c)** Wait for the cert, then tick **Enforce HTTPS**.
+DNS propagation can take 15 min–24 h; the GitHub cert a few minutes after that.
+
+> Squarespace Domains has no convenient DNS API for this, so steps (a) is a
+> manual dashboard task — but it's ~6 records and ~5 minutes. Claude can't reach
+> your Squarespace account; you (or I, if you paste the screen) drive the dashboard.
 
 ## Step 4 — Flip on indexing (currently fine, just verify)
 
