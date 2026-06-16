@@ -262,37 +262,30 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .cat p { font-size: .92rem; }
 
 /* ====================================================================
-   LENDER PANEL — typography-led hairline grid (brand: no loud logos)
+   LENDER PANEL — logo wall (greyscale → colour on hover, Savvy-style)
+   Logo card grid; auto-fills any number of lenders without orphan cells.
    ==================================================================== */
 .lender-grid {
   list-style: none; padding: 0; margin: 0;
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1px; background: var(--line);
-  border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
 }
-/* 16 lenders → clean blocks: 2×8 on mobile, 4×4 on desktop (no orphan cells) */
-@media (min-width: 920px) { .lender-grid { grid-template-columns: repeat(4, 1fr); } }
 .lender-grid li {
   background: var(--white); color: var(--navy);
   display: flex; align-items: center; justify-content: center; text-align: center;
-  min-height: 86px; padding: 22px 18px;
-  font-weight: 600; font-size: .98rem; letter-spacing: .005em;
-  position: relative; transition: color .25s, background .25s;
+  min-height: 100px; padding: 20px 18px;
+  border: 1px solid var(--line); border-radius: 10px;
+  font-weight: 600; font-size: .92rem; letter-spacing: .005em;
+  transition: border-color .3s, box-shadow .3s, transform .3s var(--ease);
 }
-.lender-grid li::after {
-  content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-  width: 0; height: 2px; background: var(--gold); transition: width .35s var(--ease);
-}
-.lender-grid li:hover { color: var(--gold); background: #FBFAF7; }
-.lender-grid li:hover::after { width: 46px; }
+.lender-grid li:hover { border-color: var(--stone); box-shadow: var(--shadow-soft); transform: translateY(-3px); }
 .lender-note { max-width: 60ch; margin-inline: auto; font-size: .9rem; }
 
-/* Logo treatment: greyscale by default, true colour on hover (Savvy-style).
-   Each tile falls back to the lender name until a real logo file is added
-   (the <img> removes itself via onerror, revealing the .lender-name). */
+/* Logo: greyscale + dimmed by default, true colour on hover. Falls back to the
+   lender name if a logo file is missing (img self-removes via onerror). */
 .lender-logo {
-  max-height: 40px; max-width: 80%; width: auto; object-fit: contain;
-  filter: grayscale(1); opacity: .82; transition: filter .3s var(--ease), opacity .3s;
+  max-height: 46px; max-width: 84%; width: auto; object-fit: contain;
+  filter: grayscale(1); opacity: .78; transition: filter .3s var(--ease), opacity .3s;
 }
 .lender-grid li:hover .lender-logo { filter: none; opacity: 1; }
 .lender-logo + .lender-name { display: none; }
