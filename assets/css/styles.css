@@ -289,6 +289,24 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .lender-logo + .lender-name { display: none; }
 
 /* ====================================================================
+   CLIENT REVIEWS
+   ==================================================================== */
+.rating-badge { display: inline-flex; align-items: center; gap: 12px; margin: 18px 0 6px; }
+.rating-badge__stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 3px; }
+.rating-badge__num { color: var(--white); font-weight: 600; font-size: .95rem; letter-spacing: .02em; }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+}
+.review {
+  background: var(--white); border-radius: 12px; padding: 28px 26px; margin: 0;
+  display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow-soft);
+}
+.review__stars { color: var(--gold); font-size: 1.05rem; letter-spacing: 2px; }
+.review blockquote { margin: 0; color: var(--ink); font-size: .98rem; line-height: 1.62; }
+.review figcaption { color: var(--navy); font-weight: 600; font-size: .9rem; margin-top: auto; }
+.review figcaption::before { content: "— "; color: var(--gold); }
+
+/* ====================================================================
    PROCESS STEPS
    ==================================================================== */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
