@@ -281,13 +281,11 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
 .lender-grid li:hover { border-color: var(--stone); box-shadow: var(--shadow-soft); transform: translateY(-3px); }
 .lender-note { max-width: 60ch; margin-inline: auto; font-size: .9rem; }
 
-/* Logo: greyscale + dimmed by default, true colour on hover. Falls back to the
-   lender name if a logo file is missing (img self-removes via onerror). */
+/* Logo: full colour. Falls back to the lender name if a logo file is missing
+   (img self-removes via onerror). */
 .lender-logo {
   max-height: 46px; max-width: 84%; width: auto; object-fit: contain;
-  filter: grayscale(1); opacity: .78; transition: filter .3s var(--ease), opacity .3s;
 }
-.lender-grid li:hover .lender-logo { filter: none; opacity: 1; }
 .lender-logo + .lender-name { display: none; }
 
 /* ====================================================================
