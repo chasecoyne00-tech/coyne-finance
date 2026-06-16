@@ -266,10 +266,12 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); letter-spacing: -0.01em; }
    ==================================================================== */
 .lender-grid {
   list-style: none; padding: 0; margin: 0;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1px; background: var(--line);
   border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden;
 }
+/* 16 lenders → clean blocks: 2×8 on mobile, 4×4 on desktop (no orphan cells) */
+@media (min-width: 920px) { .lender-grid { grid-template-columns: repeat(4, 1fr); } }
 .lender-grid li {
   background: var(--white); color: var(--navy);
   display: flex; align-items: center; justify-content: center; text-align: center;
